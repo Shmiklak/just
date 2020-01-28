@@ -1,9 +1,44 @@
-// Initialize app
-var myApp = new Framework7();
+//Detect whether Android or iOS is used
+var isAndroid = Framework7.prototype.device.android === true;
+var isIos = Framework7.prototype.device.ios === true;
+if (!Framework7.prototype.device.ios === true) {
+    isAndroid = true;
+}
 
+Template7.global = {
+    android: isAndroid,
+    ios: isIos
+};
 
 // If we need to use custom DOM library, let's save it to $$ variable:
 var $$ = Dom7;
+
+if (isAndroid) {
+    $$('head').append(
+        '<link rel="stylesheet" href="lib/framework7/css/framework7.material.min.css">' +
+        '<link rel="stylesheet" href="lib/framework7/css/framework7.material.colors.min.css">' +
+        '<link rel="stylesheet" href="lib/framework7/css/my-app.material.css">'+
+        '<link rel="stylesheet" href="css/styles.css">'
+    );
+}
+else {
+    $$('head').append(
+        '<link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">' +
+        '<link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">' +
+        '<link rel="stylesheet" href="lib/framework7/css/my-app.ios.css">'+
+        '<link rel="stylesheet" href="css/styles.css">'
+    );
+}
+
+if (isAndroid) {
+    // Change class
+    $$('.view.navbar-through').removeClass('navbar-through').addClass('navbar-fixed');
+    // And move Navbar into Page
+    $$('.view .navbar').prependTo('.view .page');
+}
+
+// Initialize app
+var myApp = new Framework7();
 
 // Add view
 var mainView = myApp.addView('.view-main', {
@@ -13,7 +48,9 @@ var mainView = myApp.addView('.view-main', {
 
 // Handle Cordova Device Ready Event
 $$(document).on('deviceready', function() {
-    console.log("Device is ready!");
+    mainView.router.load({
+        url: 'login.html'
+    });
 });
 
 
