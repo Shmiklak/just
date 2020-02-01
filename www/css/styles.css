@@ -14,10 +14,39 @@
     background: #000000;
 }
 
-.login-screen-content {
-    background: rgb(2,0,36);
-    background: -moz-linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 26%, rgba(9,12,123,1) 43%, rgba(0,212,255,1) 100%);
-    background: -webkit-linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 26%, rgba(9,12,123,1) 43%, rgba(0,212,255,1) 100%);
-    background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 26%, rgba(9,12,123,1) 43%, rgba(0,212,255,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#00d4ff",GradientType=1);
+.login-screen-logo {
+    max-width: 250px;
+    display: block;
+    margin: 50px auto 80px;
+}
+
+.label {
+    font-weight: bold;
+}
+
+.button-round {
+    border-radius: 30px;
+}
+
+.button-small {
+    max-width: 150px;
+}
+
+.login-screen-buttons-group .button {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: unset;
+    padding: 15px 30px;
+    height: unset;
+    line-height: 18px;
+    margin: 30px auto;
+}
+
+.button-glow-red {
+    box-shadow: 0 12px 23.52px 0.48px rgba(244, 34, 20, 0.21);
+}
+
+.navbar, .subnavbar, .toolbar {
+    background: #f44336!important;
 }

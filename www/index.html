@@ -28,10 +28,26 @@
     <!-- Status bar overlay for full screen mode (PhoneGap) -->
     <div class="statusbar-overlay"></div>
 
+
+    <div class="navbar">
+        <div class="navbar-inner">
+            <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
+            <div class="center sliding">Awesome App</div>
+            <div class="right">
+                <!--
+                  Right link contains only icon - additional "icon-only" class
+                  Additional "open-panel" class tells app to open panel when we click on this link
+                -->
+                <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Panels overlay-->
     <div class="panel-overlay"></div>
     <!-- Left panel with reveal effect-->
-    <div class="panel panel-left panel-reveal">
+    <div class="panel panel-left panel-cover">
         <div class="content-block">
             <p>Left panel content goes here</p>
         </div>
@@ -40,32 +56,52 @@
     <!-- Views -->
     <div class="views">
         <!-- Your main view, should have "view-main" class -->
-        <div class="view view-main">
-            <!-- Top Navbar-->
-            <div class="navbar">
-                <div class="navbar-inner">
-                    <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
-                    <div class="center sliding">Awesome App</div>
-                    <div class="right">
-                        <!--
-                          Right link contains only icon - additional "icon-only" class
-                          Additional "open-panel" class tells app to open panel when we click on this link
-                        -->
-                        <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
-            <div class="pages navbar-through toolbar-through">
-                <!-- Page, "data-page" contains page name -->
-                <div data-page="index" class="page">
-                    <!-- Scrollable page content -->
-                    <div class="page-content">
-                        <div class="content-block">
-                            <p>Page content goes here</p>
-                            <!-- Link to another page -->
-                            <a href="about.html">About app</a>
-                        </div>
+        <div class = "login-screen modal-in">
+            <div class = "view view-main">
+                <div data-page="login" class = "page">
+                    <div class = "page-content login-screen-content">
+                        <img src="images/laravel.png" class="login-screen-logo">
+                        <div class = "login-screen-title">Войдите в систему для продолжения</div>
+
+                        <form>
+                            <div class = "list-block">
+                                <ul>
+                                    <li class = "item-content">
+                                        <div class = "item-inner">
+                                            <div class = "item-title label">Email</div>
+                                            <div class = "item-input">
+                                                <input type = "text" name = "username" placeholder = "example@domain.com">
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li class = "item-content">
+                                        <div class = "item-inner">
+                                            <div class = "item-title label">Пароль</div>
+                                            <div class = "item-input">
+                                                <input type = "password" name = "password" placeholder = "********">
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class = "list-block login-screen-buttons-group">
+                                <ul>
+                                    <li>
+                                        <button type="button" id="login-button" class="login-screen-button button button-fill
+                                    color-red button-small button-round button-glow-red">
+                                            Войти
+                                        </button>
+                                    </li>
+                                </ul>
+
+                                <div class = "list-block-label">
+                                    <p><a href = "#" class = "close-login-screen">Нет аккаунта? Создайте прямо сейчас!</a></p>
+                                </div>
+                            </div>
+                        </form>
+
                     </div>
                 </div>
             </div>

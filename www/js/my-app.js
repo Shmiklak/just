@@ -15,18 +15,20 @@ var $$ = Dom7;
 
 if (isAndroid) {
     $$('head').append(
-        '<link rel="stylesheet" href="lib/framework7/css/framework7.material.min.css">' +
-        '<link rel="stylesheet" href="lib/framework7/css/framework7.material.colors.min.css">' +
-        '<link rel="stylesheet" href="lib/framework7/css/my-app.material.css">'+
-        '<link rel="stylesheet" href="css/styles.css">'
+        '    <link rel="stylesheet" href="lib/framework7/css/framework7.min.css">\n' +
+        '    <link rel="stylesheet" href="lib/framework7/css/framework7.bundle.min.css">\n' +
+        '    <link rel="stylesheet" href="lib/framework7/css/framework7.material.min.css">\n' +
+        '    <link rel="stylesheet" href="lib/framework7/css/framework7.material.colors.min.css">\n' +
+        '    <link rel="stylesheet" href="css/styles.css">'
     );
 }
 else {
     $$('head').append(
-        '<link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">' +
-        '<link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">' +
-        '<link rel="stylesheet" href="lib/framework7/css/my-app.ios.css">'+
-        '<link rel="stylesheet" href="css/styles.css">'
+        '    <link rel="stylesheet" href="lib/framework7/css/framework7.min.css">\n' +
+        '    <link rel="stylesheet" href="lib/framework7/css/framework7.bundle.min.css">\n' +
+        '    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">\n' +
+        '    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">\n' +
+        '    <link rel="stylesheet" href="css/styles.css">'
     );
 }
 
@@ -47,12 +49,15 @@ var mainView = myApp.addView('.view-main', {
 });
 
 // Handle Cordova Device Ready Event
-$$(document).on('deviceready', function() {
-    mainView.router.load({
-        url: 'login.html'
-    });
-});
-
+// $$(document).on('deviceready', function() {
+//     mainView.router.load({
+//         url: 'login.html',
+//         options: {
+//             transition: 'f7-fade'
+//         }
+//     });
+// });
+//
 
 // Now we need to run the code that will be executed only for About page.
 
@@ -77,4 +82,10 @@ $$(document).on('pageInit', function (e) {
 $$(document).on('pageInit', '.page[data-page="about"]', function (e) {
     // Following code will be executed for page with data-page attribute equal to "about"
     myApp.alert('Here comes About page');
+});
+
+$$(document).on('click', '#login-button', function(e) {
+    mainView.router.load({
+        url: 'tablesheet.html'
+    });
 })
