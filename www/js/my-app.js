@@ -5,6 +5,15 @@ if (!Framework7.prototype.device.ios === true) {
     isAndroid = true;
 }
 
+var apiHost = "just.dst.uz";
+
+var Url = function (apiHost) {
+    this.apiHost = apiHost;
+};
+Url.prototype.to = function (endpoint) {
+    return this.apiHost + endpoint;
+};
+
 Template7.global = {
     android: isAndroid,
     ios: isIos
@@ -55,7 +64,11 @@ $$(document).on('deviceready', function() {
 
 });
 
-
+// $$('form.ajax-submit').on('form:success', function (e) {
+//     var xhr = e.detail.xhr; // actual XHR object
+//     var data = e.detail.data; // Ajax response from action file
+//     console.log(xhr, data);
+// });
 
 $$(document).on('click', '#login-button', function(e) {
     mainView.router.load({
