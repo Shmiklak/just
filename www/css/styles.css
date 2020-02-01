@@ -15,9 +15,14 @@
 }
 
 .login-screen-logo {
-    max-width: 250px;
+    max-width: 150px;
     display: block;
-    margin: 50px auto 80px;
+    margin: 10px auto 30px;
+}
+
+.login-screen-title {
+    font-size: 26px;
+    font-weight: bold;
 }
 
 .label {
@@ -49,4 +54,14 @@
 
 .navbar, .subnavbar, .toolbar {
     background: #f44336!important;
+}
+
+.page-content {
+    padding-top: 45px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    z-index: 5500;
 }
